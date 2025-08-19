@@ -245,18 +245,18 @@ h4 {
 
 .bottom-left {
     flex: 1;
-    padding-top: var(--padding-medium);
-    padding-left: var(--padding-large);
-    padding-right: var(--padding-large);
-    padding-bottom: var(--padding-small);
+    
 }
 
 .bg-olive {
     background-color: var(--olive);
 }
 
-.tablet-yhteystiedot {
-
+.bottom-yhteystiedot {
+    padding-top: var(--padding-medium);
+    padding-left: var(--padding-large);
+    padding-right: var(--padding-large);
+    padding-bottom: var(--padding-small);
 }
 
 .tablet-yhteystiedot {
