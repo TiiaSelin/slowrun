@@ -335,7 +335,9 @@ align-items: center;
 
 .uutiset-main {
 padding-top: 2rem;
+padding-bottom: 2rem;
 color: var(--blue);
+font-size: 3rem;
 
 }
 
@@ -343,11 +345,11 @@ color: var(--blue);
 display: flex;
 flex-direction: column;
 color: var(--dark-blue);
-width: 40%;
+width: 35%;
 padding: 2rem;
 margin-bottom: 3rem;
 background: var(--white);
-border-radius: 8px;
+/*border-radius: 8px;*/
 box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -358,10 +360,10 @@ box-shadow: 0 6px 15px rgba(0,0,0,0.12);
 
 
 .uutiskuva {
-max-width: 350px;
+max-width: 450px;
 align-self: center;
 object-fit: cover;
-border-radius: 6px;
+/*border-radius: 6px;*/
 margin-bottom: 1.5rem;
 }
 
