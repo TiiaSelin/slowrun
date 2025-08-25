@@ -1,27 +1,30 @@
 :root {
     --blue: #05556F;
-    --dark-blue: #003856;
+    --btn-hover-dark-blue: #003856;
     --olive: #96906D;
     --white: white;
-    --light-yellow: #D7CFA1;
+    --link-hover-yellow: #D7CFA1;
     --light-blue-gray: #84869B;
     --green: #849E8A;
     --font-fam-main: "Libre Bodoni";
     --font-fam-sec: "Inter";
-    /* --link-active: VÄRI
-    --link-hover: VÄRI */
+    /* --link-active: VÄRI */
     --padding-xs: 1.5rem;
     --padding-small: 2rem;
     --padding-medium: 4rem;
-    --padding-large: 6rem;
-    --padding-xl: 12rem;
+    --padding-large: 10rem;
+    --padding-xl: 20rem;
+    --margin-xs: 1rem;
     --margin-small: 2rem;
+    --margin-medium: 4rem;
+    --font-size-logo: 3rem;
+    --font-size-nav-link: 1.2rem;
     --font-size-h1: 2.5rem;
     --font-size-h2: 2rem;
     --font-size-h3: 1.5rem;
     --font-size-h4: 1rem;
-    /* --font-size-txt-big: 000;
-    --font-size-txt-small: 000; */
+    --font-size-txt-big: 1.5rem;
+    --font-size-txt-small: 1rem;
 }
 
 * {
@@ -29,6 +32,7 @@
     padding: 0;
     font-family: var(--font-fam-main);
     overflow-x: hidden;
+    line-height: 1.5;
 }
 
 .container {
@@ -45,6 +49,7 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    align-items: center;
 }
 
 .bg-blue {
@@ -67,12 +72,12 @@ a {
 }
 
 a:hover {
-    color: var(--light-yellow);
+    color: var(--link-hover-yellow);
     cursor: pointer;
 }
 
 .nav-logo-link {
-    font-size: var(--font-size-h1);
+    font-size: var(--font-size-logo);
 }
 
 .txt-white {
@@ -84,7 +89,7 @@ a:hover {
     flex-direction: row;
     flex: 1;
     justify-content: right;
-    padding-right: var(--padding-small);
+    padding-right: var(--padding-medium);
 }
 
 .nav-section-links {
@@ -99,7 +104,8 @@ a:hover {
 
 .nav-link {
     margin: var(--margin-small);
-    
+    font-size: var(--font-size-nav-link);
+    font-weight: 600;    
 }
 
 .container-top-cover {    
@@ -121,11 +127,13 @@ a:hover {
 h1 {
     font-size: var(--font-size-h1);
     overflow: visible;
+    margin-bottom: var(--margin-medium);
 }
 
 .slogan-txt {
     padding-left: .5rem;
     vertical-align: middle;
+    margin-bottom: var(--margin-xs);
 }
 
 button {
@@ -133,7 +141,7 @@ button {
 }
 
 button:hover {
-    color: var(--light-yellow);
+    color: var(--btn-hover-dark-blue);
 }
 
 .join-btn {
@@ -141,11 +149,11 @@ button:hover {
     padding-bottom: .8rem;
     padding-right: var(--padding-xs);
     padding-left: var(--padding-xs);
-    margin-top: 1rem;
     margin-left: .5rem;
     border: none;
     border-radius: 3px;
     font-weight: 500;
+    font-size: var(--font-size-nav-link);
 }
 
 .bg-green {
@@ -159,13 +167,12 @@ button:hover {
 .txt-mista-on-kyse {
     padding-left: var(--padding-xl);
     padding-right: var(--padding-xl);
-    padding-top: var(--padding-small);
+    padding-top: var(--padding-medium);
 }
 
 h2 {
     font-size: var(--font-size-h2);
     margin-bottom: var(--margin-small);
-    line-height: 1.5;
 }
 
 .header-mista-on-kyse {
@@ -173,7 +180,11 @@ h2 {
 }
 
 p {
-    line-height: 1.5;
+    font-size: var(--font-size-txt-small);
+}
+
+.p-mista-on-kyse {
+    font-size: var(--font-size-txt-big);
 }
 
 .txt-blue {
@@ -183,7 +194,7 @@ p {
 .container-mihin-vaikuttaa {
     display: flex;
     flex-direction: row;
-    padding: var(--padding-medium);
+    padding: var(--padding-large);
 }
 
 .section-mihin-vaikuttaa {
@@ -216,18 +227,19 @@ h3 {
     padding: var(--padding-large);
 }
 
+.p-keita-olemme {
+    font-size: var(--font-size-txt-big);
+}
+
 .container-miksi-mukaan {
 
 }
 
 .txt-miksi-mukaan {
     padding: var(--padding-large);
+    padding-right: var(--padding-xl);
     justify-items: right;
 
-}
-
-h4 {
-    font-size: var(--font-size-h4);
 }
 
 .txt-olive {
@@ -300,6 +312,7 @@ input:focus {
     margin-top: 1rem;
     border: none;
     border-radius: 3px;
+    font-weight: 500;
 }
 
 .bottom-right {
