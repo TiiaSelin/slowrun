@@ -421,3 +421,23 @@ cursor: pointer; }
   text-align: left;
   margin-left: 0.2rem;
 }
+
+
+.yksittainen-uutinen {
+display: flex;
+flex-direction: column;
+color: var(--dark-blue);
+width: 25%;
+padding: 2rem;
+margin-bottom: 3rem;
+background: var(--white);
+
+
+}
+
+.uutiskuva-iso {
+max-width: 100%;
+align-self: left;
+margin-bottom: 1.5rem;
+
+}
