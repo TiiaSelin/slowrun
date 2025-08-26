@@ -25,5 +25,5 @@ urlpatterns = [
     path('', views.home)
 ]
 
-if settings.DEBUG:  # only serve static in development
+if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.BASE_DIR / "static")
