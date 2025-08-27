@@ -322,7 +322,8 @@ input:focus {
 }
 
 footer {
-    
+    display: flex;
+    flex-direction: row;   
 }
 
 .footer-left {
