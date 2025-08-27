@@ -41,6 +41,8 @@
 
 .container-top {
     background-image: url('../images/pexels-drerun-22541351.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 100%;
     height: auto;
 }
