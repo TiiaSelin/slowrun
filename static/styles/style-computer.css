@@ -13,7 +13,7 @@
     --padding-small: 2rem;
     --padding-medium: 4rem;
     --padding-large: 10rem;
-    --padding-xl: 20rem;
+    --padding-xl: 16rem;
     --margin-xs: 1rem;
     --margin-small: 2rem;
     --margin-medium: 4rem;
@@ -205,7 +205,8 @@ p {
 }
 
 .icon-mihin-vaikuttaa {
-
+    width: 100%;
+    margin-bottom: var(--margin-medium);
 }
 
 .txt-mihin-vaikuttaa {
@@ -239,7 +240,7 @@ h3 {
 
 .txt-miksi-mukaan {
     padding: var(--padding-large);
-    padding-right: var(--padding-xl);
+    padding-right: var(--padding-large);
     justify-items: right;
 
 }
@@ -259,7 +260,6 @@ h3 {
 
 .bottom-left {
     flex: 1;
-    
 }
 
 .bg-olive {
@@ -321,22 +321,37 @@ input:focus {
     flex: 1;
 }
 
-footer {
-   display: flex;
-   flex-direction: row; 
+.map {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border: none;
+    display: block;
 }
 
-.footer-left {
+footer {
     display: flex;
     flex-direction: row;
+    align-content: center;
     padding-left: var(--padding-small);
     padding-right: var(--padding-small);
     padding-top: var(--padding-xs);
     padding-bottom: var(--padding-xs);
 }
 
-
+.footer-left {
+    display: flex;
+    flex-direction: row;
+    flex: 1;  
+}
 
 .footer-right {
+    display: flex;
+    flex: 1;
+    justify-content: right;
+}
 
+.icon-footer {
+    align-content: center;
+    margin-left: var(--margin-medium);
 }
