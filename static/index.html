@@ -95,30 +95,43 @@
                 <h1 class="txt-all-capitals txt-olive">Miksi mukaan?</h1>
                 <h3 class="txt-olive">Arvomme näet alla:</h3>
             </div>
-            <div class="arvo-portaat">
-                <!-- Pitkäikäisyys,
-                            Fyysisyys
-                                    Terve mieli
-                                            Yhteisöllisyys -->
+
+            <div class="container-arvoportaat">
+                <svg class="svg-arvoportaat" xmlns="http://www.w3.org/2000/svg">
+                        <!-- merkitään arvoportaiden sanojen "lähtöpisteet" (x ja y): -->
+                    <text x="30" y="32" class="txt-arvoportaat">Pitkäikäisyys</text>
+                    <text x="304" y="80" class="txt-arvoportaat">Fyysisyys</text>
+                    <text x="546" y="128" class="txt-arvoportaat">Terve mieli</text>
+                    <text x="780" y="176" class="txt-arvoportaat">Yhteisöllisyys</text>
+                    
+                        <!-- merkitään viivakuvion kulmien "lähtöpisteet" (x ja y): -->
+                    <polyline points=   "0, 48      250, 48
+                                        250, 96     500, 96
+                                        500, 144    750, 144
+                                        750, 192    1000, 192">
+                    
+                </svg>
             </div>
-            <div class="container-bottom">
-                <div class="bottom-left">
-                    <div class="bottom-yhteystiedot bg-olive">
-                        <h2 class="txt-white">Haluatko tietää<br>toiminnastamme lisää?</h2>
-                        <div class="tablet-yhteystiedot">
-                            <input type="text" name="nimi" class="input-small" placeholder="Nimesi">
-                            <input type="text" name="s-posti" class="input-small" placeholder="Sähköpostisi">
-                            <input type="text" name="paikkakunta" class="input-small" placeholder="Paikkakuntasi">
-                            <input type="text" name="viesti" class="input-large" placeholder="Vapaa viesti meille...">
-                            <!-- YHTEYSTIETOLOMAKE -->
-                            <button type="submit" class="btn-laheta bg-blue txt-white font-fam-sec">Lähetä</button>
-                        </div>
+        </div>
+        
+        <div class="container-bottom">
+            <div class="bottom-left">
+                <div class="bottom-yhteystiedot bg-olive">
+                    <h2 class="txt-white">Haluatko tietää<br>toiminnastamme lisää?</h2>
+                    <div class="tablet-yhteystiedot">
+                        <input type="text" name="nimi" class="input-small" placeholder="Nimesi">
+                        <input type="text" name="s-posti" class="input-small" placeholder="Sähköpostisi">
+                        <input type="text" name="paikkakunta" class="input-small" placeholder="Paikkakuntasi">
+                        <input type="text" name="viesti" class="input-large" placeholder="Vapaa viesti meille...">
+                        <!-- YHTEYSTIETOLOMAKE -->
+                        <button type="submit" class="btn-laheta bg-blue txt-white font-fam-sec">Lähetä</button>
                     </div>
                 </div>
-                <div class="bottom-right">
-                    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2295.711354875636!2d28.16723845051227!3d61.06314277106505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x469095fdbaf860b7%3A0x52fa9d54e01c5219!2sSaunarannanpuisto!5e0!3m2!1sfi!2sfi!4v1756575444883!5m2!1sfi!2sfi" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
             </div>
+            <div class="bottom-right">
+                <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2295.711354875636!2d28.16723845051227!3d61.06314277106505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x469095fdbaf860b7%3A0x52fa9d54e01c5219!2sSaunarannanpuisto!5e0!3m2!1sfi!2sfi!4v1756575444883!5m2!1sfi!2sfi" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
             <footer class="bg-white">
                 <div class="footer-left">
                     <p class="txt-blue font-fam-sec">Made in TAI-TVT</p>
@@ -133,7 +146,7 @@
                 </div>
             </footer>
 
-        </div>
+        
     </div>
     
 </body>

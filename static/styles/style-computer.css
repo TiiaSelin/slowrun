@@ -19,10 +19,10 @@
     --margin-medium: 4rem;
     --font-size-logo: 3rem;
     --font-size-nav-link: 1.2rem;
-    --font-size-h1: 2.5rem;
-    --font-size-h2: 2rem;
-    --font-size-h3: 1.5rem;
-    --font-size-h4: 1rem;
+    --font-size-h1: 2.5rem;     /* = 40px */
+    --font-size-h2: 2rem;       /* = 32px */
+    --font-size-h3: 1.5rem;     /* = 24px */
+    --font-size-h4: 1rem;       /* = 16px */
     --font-size-txt-big: 1.5rem;
     --font-size-txt-small: 1rem;
 }
@@ -235,22 +235,38 @@ h3 {
 }
 
 .container-miksi-mukaan {
-
+    padding: var(--padding-large);
 }
 
 .txt-miksi-mukaan {
-    padding: var(--padding-large);
-    padding-right: var(--padding-large);
     justify-items: right;
-
 }
 
 .txt-olive {
     color: var(--olive);
 }
 
-.arvo-portaat {
+.container-arvoportaat {
+    width: 100%;
+    height: 200px;          /* korkeus 144px + extraa */
+    overflow-y: hidden;     /* + fonttikorkeus 32px */
+}
 
+.svg-arvoportaat {
+    width: 1000px;
+    height: 200px;
+}
+
+.txt-arvoportaat {
+    fill: var(--olive);
+    font-size: var(--font-size-h2);
+    font-family: var(--font-fam-sec);
+}
+
+polyline {
+    stroke: var(--olive);
+    stroke-width: 2;
+    fill: none;
 }
 
 .container-bottom {
