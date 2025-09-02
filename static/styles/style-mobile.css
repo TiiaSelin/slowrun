@@ -1,4 +1,8 @@
 @media only screen and (max-width : 800px) {
+    body {
+        height: 100%;
+    }
+    
     h1 {
         font-size: var(--font-size-h2);
     }
@@ -20,8 +24,25 @@
         flex-direction: column-reverse;
     }
 
-    footer {
+    .container-bottom {
         flex-direction: column;
         align-items: center;
+    }
+
+    .bottom-left {
+        order: 2;
+        width: 100%;
+    }
+
+    .bottom-right {
+        order: 1;
+        width: 100%;
+        height: 100vh;
+        padding: 0;
+        flex: 1;
+    }
+
+    .map {
+        height: 100vh;
     }
 }
