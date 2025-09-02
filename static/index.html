@@ -149,11 +149,22 @@
 <script>
     const menu = document.getElementById("menu");
     const mobileMenu = document.getElementById("mobile-menu");
+    const closeMenu = () => {
+        mobileMenu.style.display = "none";
+    }
+    const openMenu = () => {
+        mobileMenu.style.display = "flex";
+    }
     menu.addEventListener("click", () => {
         if (mobileMenu.style.display == "none") {
-            mobileMenu.style.display = "flex";
+            openMenu();
         } else {
-            mobileMenu.style.display = "none";
+            closeMenu();
+        }
+    });
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 800) {
+            closeMenu();
         }
     })
 </script>
