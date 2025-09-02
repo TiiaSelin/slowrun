@@ -1,27 +1,35 @@
-@media only screen and (max-width : 800px) {
-    h1 {
-        font-size: var(--font-size-h2);
-    }
+@media only screen and (max-width: 800px) {
+  h1 {
+    font-size: var(--font-size-h2);
+  }
 
-    .hero-image {
-        padding: var(--padding-small);
-    }
+  .hero-image {
+    padding: var(--padding-small);
+  }
 
-    .txt-mista-on-kyse {
-        padding: var(--padding-small);
-        padding-top: var(--padding-medium);
-    }
+  .txt-mista-on-kyse {
+    padding: var(--padding-small);
+    padding-top: var(--padding-medium);
+  }
 
-    .container-mihin-vaikuttaa {
-        flex-direction: column;
-    }
+  .container-mihin-vaikuttaa {
+    flex-direction: column;
+  }
 
-    .container-bottom {
-        flex-direction: column-reverse;
-    }
+  .container-bottom {
+    flex-direction: column-reverse;
+  }
 
-    footer {
-        flex-direction: column;
-        align-items: center;
-    }
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .burger-icon {
+    display: block;
+  }
+
+  .nav-section-links {
+    display: none;
+  }
 }
