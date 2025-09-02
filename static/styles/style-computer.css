@@ -351,3 +351,7 @@ footer {
 .burger-icon {
   display: none;
 }
+
+.mobile-links {
+  display: none;
+}

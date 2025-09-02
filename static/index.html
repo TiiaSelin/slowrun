@@ -21,6 +21,11 @@
                     <a class="nav-logo-link txt-all-capitals txt-white">Slow Run</a>   <!-- runner-img in link -->
                 </div>
                 <div class="nav-right">
+                    <section class="burger-icon" id="menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </section>
                     <div class="nav-section-links">
                         <div>
                             <a href="uutiset.html" class="nav-link txt-all-capitals txt-white font-fam-sec">Uutiset</a>
@@ -29,11 +34,10 @@
                             <a href="yhteystiedot.html" class="nav-link txt-all-capitals txt-white font-fam-sec">Yhteys</a>
                         </div>
                     </div>
-                    <section class="burger-icon">
-                        <span>
-                            sieni
-                        </span>
-                    </section>
+                    <aside class="mobile-links" id="mobile-menu">
+                        <a href="uutiset.html" class="nav-link txt-all-capitals txt-white font-fam-sec">Uutiset</a>
+                        <a href="yhteystiedot.html" class="nav-link txt-all-capitals txt-white font-fam-sec">Yhteys</a>
+                    </aside>
                 </div>
             </div>
             <div class="container-top-cover">
@@ -142,4 +146,15 @@
     </div>
     
 </body>
+<script>
+    const menu = document.getElementById("menu");
+    const mobileMenu = document.getElementById("mobile-menu");
+    menu.addEventListener("click", () => {
+        if (mobileMenu.style.display == "none") {
+            mobileMenu.style.display = "flex";
+        } else {
+            mobileMenu.style.display = "none";
+        }
+    })
+</script>
 </html>
