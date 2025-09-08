@@ -361,8 +361,9 @@ box-shadow: 0 6px 15px rgba(0,0,0,0.12);
 
 
 .uutiskuva {
-width:  600px;
-height: 400px;
+width:  100%;
+height: auto;
+max-width: 600px;
 align-self: left;
 object-fit: cover;
 object-position: center;
@@ -437,12 +438,3 @@ background: var(--white);
 
 }
 
-.uutiskuva-iso {
-width:  750px;
-height: 500px;
-object-fit: cover;
-object-position: center;
-margin-bottom: 1.5rem;
-object-fit: cover; 
-
-}
