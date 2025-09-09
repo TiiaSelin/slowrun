@@ -1,27 +1,59 @@
-@media only screen and (max-width : 800px) {
-    h1 {
-        font-size: var(--font-size-h2);
-    }
+@media only screen and (max-width: 800px) {
+  h1 {
+    font-size: var(--font-size-h2);
+  }
 
-    .hero-image {
-        padding: var(--padding-small);
-    }
+  .hero-image {
+    padding: var(--padding-small);
+  }
 
-    .txt-mista-on-kyse {
-        padding: var(--padding-small);
-        padding-top: var(--padding-medium);
-    }
+  .txt-mista-on-kyse {
+    padding: var(--padding-small);
+    padding-top: var(--padding-medium);
+  }
 
-    .container-mihin-vaikuttaa {
-        flex-direction: column;
-    }
+  .container-mihin-vaikuttaa {
+    flex-direction: column;
+  }
 
-    .container-bottom {
-        flex-direction: column-reverse;
-    }
+  .container-bottom {
+    flex-direction: column-reverse;
+  }
 
-    footer {
-        flex-direction: column;
-        align-items: center;
-    }
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .burger-icon {
+    display: block;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30%;
+    height: 100%;
+  }
+
+  .burger-icon span {
+    display: block;
+    height: 0.3rem;
+    width: 3rem;
+    background-color: white;
+    border-radius: 2px;
+    margin: 0.1rem;
+  }
+
+  .nav-section-links {
+    display: none;
+  }
+
+  .mobile-links {
+    display: none;
+    flex-direction: column;
+    background-color: #004080;
+    padding: 1rem;
+    position: absolute;
+    top: 5rem;
+    right: 3rem;
+    border-radius: 0.3rem;
+  }
 }
