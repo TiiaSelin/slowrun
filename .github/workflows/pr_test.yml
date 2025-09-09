@@ -1,0 +1,22 @@
+name: Sivun reitittimen testaus.
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.11.2
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11.2
+      - name: Asenna tarvittavat paketit.
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Suorita testit.
+        run: |
+          coverage run manage.py test
+          coverage report

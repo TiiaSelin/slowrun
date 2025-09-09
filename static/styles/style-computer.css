@@ -230,6 +230,7 @@ h3 {
 }
 
 .container-miksi-mukaan {
+  padding: var(--padding-large);
 }
 
 .txt-miksi-mukaan {
@@ -242,7 +243,27 @@ h3 {
   color: var(--olive);
 }
 
-.arvo-portaat {
+.container-arvoportaat {
+  width: 100%;
+  height: 200px;          /* korkeus 144px + extraa */
+  overflow-y: hidden;     /* + fonttikorkeus 32px */
+}
+
+.svg-arvoportaat {
+  width: 1000px;
+  height: 200px;
+}
+
+.txt-arvoportaat {
+  fill: var(--olive);
+  font-size: var(--font-size-h2);
+  font-family: var(--font-fam-sec);
+}
+
+polyline {
+  stroke: var(--olive);
+  stroke-width: 2;
+  fill: none;
 }
 
 .container-bottom {
