@@ -1,3 +1,12 @@
 from django.db import models
 
-# Create your models here.
+class Viesti(models.Model):
+    nimi = models.CharField(max_length=100)
+    sahkoposti = models.EmailField()
+    aihe = models.CharField(max_length=200)
+    viesti = models.TextField()
+    luotu = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.nimi
+
