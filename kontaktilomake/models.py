@@ -3,7 +3,7 @@ from django.db import models
 class Viesti(models.Model):
     nimi = models.CharField(max_length=100)
     sahkoposti = models.EmailField()
-    aihe = models.CharField(max_length=200)
+    paikkakunta = models.CharField(max_length=200)
     viesti = models.TextField()
     luotu = models.DateTimeField(auto_now_add=True)
 
