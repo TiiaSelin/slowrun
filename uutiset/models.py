@@ -10,3 +10,6 @@ class Uutinen(models.Model):
     content = models.TextField()
     date = models.DateTimeField(default=timezone.now)
     picture = models.ImageField(upload_to="")
+
+    def __str__(self):
+        return self.title
