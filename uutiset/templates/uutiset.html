@@ -35,10 +35,15 @@
             >
           </div>
           <div class="nav-right">
+            <section class="burger-icon" id="menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </section>
             <div class="nav-section-links">
               <div>
                 <a
-                  href="uutiset.html"
+                  href="{% url 'uutiset' %}"
                   class="nav-link txt-all-capitals txt-white font-fam-sec"
                   >Uutiset</a
                 >
@@ -51,6 +56,18 @@
                 >
               </div>
             </div>
+            <aside class="mobile-links" id="mobile-menu">
+              <a
+                href="{% url 'uutiset' %}"
+                class="nav-link txt-all-capitals txt-white font-fam-sec"
+                >Uutiset</a
+              >
+              <a
+                href="yhteystiedot.html"
+                class="nav-link txt-all-capitals txt-white font-fam-sec"
+                >Yhteys</a
+              >
+            </aside>
           </div>
         </div>
 
@@ -64,7 +81,9 @@
             </h2>
             <p class="uutis-pvm">Julkaistu: {{u.date}}</p>
             <p>{{u.content}}</p>
-            <p class="lue-lisaa"><a href="uutinen1.html">Lue lisää →</a></p>
+            <p class="lue-lisaa">
+              <a href="{% url 'uutinen_detail' u.id %}">Lue lisää →</a>
+            </p>
           </div>
           {% empty %}
           <div>Ei ole uutisia.</div>
@@ -86,4 +105,26 @@
       </div>
     </div>
   </body>
+  <script>
+    const menu = document.getElementById("menu");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const closeMenu = () => {
+      mobileMenu.style.display = "none";
+    };
+    const openMenu = () => {
+      mobileMenu.style.display = "flex";
+    };
+    menu.addEventListener("click", () => {
+      if (mobileMenu.style.display == "none") {
+        openMenu();
+      } else {
+        closeMenu();
+      }
+    });
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 800) {
+        closeMenu();
+      }
+    });
+  </script>
 </html>

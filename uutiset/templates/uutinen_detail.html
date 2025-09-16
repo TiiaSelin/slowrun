@@ -1,0 +1,121 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slow Run ry</title>
+    <link rel="stylesheet" href="{% static 'styles/style-computer.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/style-mobile.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- sivun YLÄOSA -->
+      <div>
+        <!-- NAVIGOINTIPALKKI -->
+        <div class="nav-bar bg-blue">
+          <div class="nav-left">
+            <a
+              href="{% url 'index' %}"
+              class="nav-logo-link txt-all-capitals txt-white"
+              >Slow Run</a
+            >
+          </div>
+          <div class="nav-right">
+            <section class="burger-icon" id="menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </section>
+            <div class="nav-section-links">
+              <div>
+                <a
+                  href="{% url 'uutiset' %}"
+                  class="nav-link txt-all-capitals txt-white font-fam-sec"
+                  >Uutiset</a
+                >
+              </div>
+              <div>
+                <a
+                  href="yhteystiedot.html"
+                  class="nav-link txt-all-capitals txt-white font-fam-sec"
+                  >Yhteys</a
+                >
+              </div>
+            </div>
+            <aside class="mobile-links" id="mobile-menu">
+              <a
+                href="{% url 'uutiset' %}"
+                class="nav-link txt-all-capitals txt-white font-fam-sec"
+                >Uutiset</a
+              >
+              <a
+                href="yhteystiedot.html"
+                class="nav-link txt-all-capitals txt-white font-fam-sec"
+                >Yhteys</a
+              >
+            </aside>
+          </div>
+        </div>
+
+        <div class="uutiset-osio">
+          <h1 class="txt-all-capitals uutiset-main">Uutinen.</h1>
+          <div class="yksittainen-uutinen">
+            <img src="{{ uutinen.picture.url }}" alt="" class="uutiskuva" />
+            <h2 class="uutiset-alaotsikko">{{ uutinen.title }}</h2>
+            <p class="uutis-pvm">Julkaistu: {{ uutinen.date }}</p>
+            <p>{{ uutinen.content }}</p>
+          </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="bg-white">
+          <div class="footer-left">
+            <p class="txt-blue font-fam-sec">Made in TAI-TVT</p>
+          </div>
+          <div class="footer-right">
+            <icon></icon>
+            <!-- icon-facebook -->
+            <icon></icon>
+            <!-- icon-linkedin -->
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+  <script>
+    const menu = document.getElementById("menu");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const closeMenu = () => {
+      mobileMenu.style.display = "none";
+    };
+    const openMenu = () => {
+      mobileMenu.style.display = "flex";
+    };
+    menu.addEventListener("click", () => {
+      if (mobileMenu.style.display == "none") {
+        openMenu();
+      } else {
+        closeMenu();
+      }
+    });
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 800) {
+        closeMenu();
+      }
+    });
+  </script>
+</html>
