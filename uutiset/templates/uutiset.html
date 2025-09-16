@@ -60,7 +60,7 @@
           <div class="uutinen">
             <img src="{{u.picture.url}}" alt="" class="uutiskuva" />
             <h2 class="uutiset-alaotsikko">
-              <a href="uutinen1.html">{{u.title}} </a>
+              <a href="{% url 'uutinen_detail' u.id %}">{{u.title}} </a>
             </h2>
             <p class="uutis-pvm">Julkaistu: {{u.date}}</p>
             <p>{{u.content}}</p>
