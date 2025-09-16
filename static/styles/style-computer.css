@@ -491,3 +491,57 @@ background: var(--white);
 
 }
 
+/*yhteystiedot-sivu*/
+
+
+.yhteydenottolomake {
+  width: 40%;
+  margin: 5%;
+  padding: 1%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+
+}
+
+.lomake-container {
+  display: flex;
+  justify-content: center;
+
+}
+
+.henkilosto {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+
+.kuva{
+ 
+width: 10rem;
+height:13rem;
+border: 2px black solid;
+}
+
+.info {
+width: 12rem;
+
+}
+
+.henkilo{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+
+.yhteystiedot-otsikko {
+  display: flex;
+justify-content: center;
+font-weight: 400;
+padding-top: 2rem;
+}
