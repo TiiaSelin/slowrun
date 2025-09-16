@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slow Run ry</title>
+    <link rel="stylesheet" href="{% static 'styles/style-computer.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/style-mobile.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- sivun YLÄOSA -->
+      <div>
+        <!-- NAVIGOINTIPALKKI -->
+        <div class="nav-bar bg-blue">
+          <div class="nav-left">
+            <a
+              href="{% url 'index' %}"
+              class="nav-logo-link txt-all-capitals txt-white"
+              >Slow Run</a
+            >
+          </div>
+          <div class="nav-right">
+            <div class="nav-section-links">
+              <div>
+                <a
+                  href="uutiset.html"
+                  class="nav-link txt-all-capitals txt-white font-fam-sec"
+                  >Uutiset</a
+                >
+              </div>
+              <div>
+                <a
+                  href="yhteystiedot.html"
+                  class="nav-link txt-all-capitals txt-white font-fam-sec"
+                  >Yhteys</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="uutiset-osio">
+          <h1 class="txt-all-capitals uutiset-main">Uutiset</h1>
+          {% for u in uutiset %}
+          <div class="uutinen">
+            <img src="{{u.picture.url}}" alt="" class="uutiskuva" />
+            <h2 class="uutiset-alaotsikko">
+              <a href="uutinen1.html">{{u.title}} </a>
+            </h2>
+            <p class="uutis-pvm">Julkaistu: {{u.date}}</p>
+            <p>{{u.content}}</p>
+            <p class="lue-lisaa"><a href="uutinen1.html">Lue lisää →</a></p>
+          </div>
+          {% empty %}
+          <div>Ei ole uutisia.</div>
+          {% endfor %}
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="bg-white">
+          <div class="footer-left">
+            <p class="txt-blue font-fam-sec">Made in TAI-TVT</p>
+          </div>
+          <div class="footer-right">
+            <icon></icon>
+            <!-- icon-facebook -->
+            <icon></icon>
+            <!-- icon-linkedin -->
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

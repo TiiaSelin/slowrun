@@ -1,4 +1,7 @@
-from django.shortcuts import redirect
+from django.shortcuts import render
+from .models import Uutinen
 
-def home(request):
-    return redirect("static/index.html")
+def uutiset_view(request):
+    uutiset = Uutinen.objects.all().order_by("date")
+    return render(request, "uutiset.html", {"uutiset": uutiset})
+    
