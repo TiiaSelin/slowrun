@@ -43,6 +43,10 @@
     align-items: center;
   }
 
+  .icon-footer {
+    margin: var(--margin-xs);
+  }
+
   .burger-icon {
     display: block;
     flex-direction: column;
