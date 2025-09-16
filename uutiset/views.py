@@ -1,4 +1,4 @@
-from django.shortcuts import redirect
+from django.shortcuts import render
 
-def home(request):
-    return redirect("static/index.html")
+def uutiset_view(request):
+    return render(request, "uutiset.html")
