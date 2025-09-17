@@ -1,11 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slow Run ry</title>
-    <link rel="stylesheet" href="styles/style-computer.css">
-    <link rel="stylesheet" href="styles/style-mobile.css">
+    <link rel="stylesheet" href="{% static 'styles/style-computer.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/style-mobile.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
@@ -45,7 +46,7 @@
             <div class="henkilosto">
                 <div class="henkilo">
                     <div>
-                    <img src="images/profiilikuva1.jpg" alt="" class="kuva">
+                    <img src="{% static '/images/profiilikuva1.jpg' %}" alt="" class="kuva">
                     </div>
                     <div class="info">
                         <p style="font-size: 1.3rem;">Mohammed</p>
@@ -57,7 +58,7 @@
                 </div>
                 <div class="henkilo">
                     <div>
-                    <img src="images/profiilikuva2.jpg" alt="" class="kuva">
+                    <img src="{% static '/images/profiilikuva2.jpg' %}" alt="" class="kuva">
                     </div>
                     <div class="info">
                         <p style="font-size: 1.3rem;">Johanna</p>
@@ -69,7 +70,7 @@
                 </div>
                 <div class="henkilo">
                     <div>
-                    <img src="images/profiilikuva3.jpg" alt="" class="kuva">
+                    <img src="{% static '/images/profiilikuva3.jpg' %}" alt="" class="kuva">
 
                     </div>
                     <div class="info">
