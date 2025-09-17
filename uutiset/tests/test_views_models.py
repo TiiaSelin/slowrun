@@ -1,0 +1,32 @@
+from django.test import TestCase
+from django.urls import reverse
+from django.utils import timezone
+from django.core.files.uploadedfile import SimpleUploadedFile
+from datetime import timedelta
+from uutiset.models import Uutinen
+from uutiset import views
+
+class UutisetTest(TestCase):
+    def setUp(self):
+        fake_image = SimpleUploadedFile(
+            name="test.jpg",
+            content=b"",
+            content_type="image/jpeg"
+        )
+        self.test_uutinen_0 = Uutinen.objects.create(id=1, title="testiotsikko", content="testikontentti", date=timezone.now(), picture=fake_image)
+        self.test_uutinen_1 = Uutinen.objects.create(picture=fake_image)
+        self.test_uutinen_2 = Uutinen.objects.create(picture=fake_image)
+
+    def test_uutinen_creation(self):
+        self.assertEqual(Uutinen.objects.count(), 3)
+
+    def test_uutinen_string(self):
+        self.assertEqual(self.test_uutinen_0.__str__(), "testiotsikko")
+
+    def test_uutiset_view(self):
+        response = self.client.get(reverse("uutiset"))
+        self.assertContains(response, "testiotsikko")
+
+    def test_uutiset_detail(self):
+        response = self.client.get(reverse("uutinen_detail", args=[self.test_uutinen_0.id]))
+        self.assertContains(response, "testiotsikko")

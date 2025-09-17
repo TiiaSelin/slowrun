@@ -27,6 +27,6 @@ urlpatterns = [
     path("uutiset/<int:uutinen_id>/", uutiset_views.uutinen_detail, name="uutinen_detail")
 ]
 
-if settings.DEBUG:
+if settings.DEBUG: # pragma: no cover
     urlpatterns += static(settings.STATIC_URL, document_root=settings.BASE_DIR / "static")
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
