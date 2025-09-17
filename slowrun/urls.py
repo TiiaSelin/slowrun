@@ -23,7 +23,8 @@ from uutiset import views as uutiset_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('kontaktilomake.urls')),
-    path("uutiset/", uutiset_views.uutiset_view, name="uutiset")
+    path("uutiset/", uutiset_views.uutiset_view, name="uutiset"),
+    path("uutiset/<int:uutinen_id>/", uutiset_views.uutinen_detail, name="uutinen_detail")
 ]
 
 if settings.DEBUG:

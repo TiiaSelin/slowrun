@@ -72,22 +72,13 @@
         </div>
 
         <div class="uutiset-osio">
-          <h1 class="txt-all-capitals uutiset-main">Uutiset</h1>
-          {% for u in uutiset %}
-          <div class="uutinen">
-            <img src="{{u.picture.url}}" alt="" class="uutiskuva" />
-            <h2 class="uutiset-alaotsikko">
-              <a href="{% url 'uutinen_detail' u.id %}">{{u.title}} </a>
-            </h2>
-            <p class="uutis-pvm">Julkaistu: {{u.date}}</p>
-            <p>{{u.content}}</p>
-            <p class="lue-lisaa">
-              <a href="{% url 'uutinen_detail' u.id %}">Lue lisää →</a>
-            </p>
+          <h1 class="txt-all-capitals uutiset-main">Uutinen.</h1>
+          <div class="yksittainen-uutinen">
+            <img src="{{ uutinen.picture.url }}" alt="" class="uutiskuva" />
+            <h2 class="uutiset-alaotsikko">{{ uutinen.title }}</h2>
+            <p class="uutis-pvm">Julkaistu: {{ uutinen.date }}</p>
+            <p>{{ uutinen.content }}</p>
           </div>
-          {% empty %}
-          <div>Ei ole uutisia.</div>
-          {% endfor %}
         </div>
 
         <!-- FOOTER -->
