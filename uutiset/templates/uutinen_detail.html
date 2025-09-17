@@ -85,7 +85,7 @@
             {% endif %}
             <h2 class="uutiset-alaotsikko">{{ uutinen.title }}</h2>
             <p class="uutis-pvm">Julkaistu: {{ uutinen.date }}</p>
-            <p>{{ uutinen.content }}</p>
+            <p>{{ uutinen.content|linebreaksbr }}</p>
           </div>
         </div>
 

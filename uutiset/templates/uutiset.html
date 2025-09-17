@@ -84,7 +84,7 @@
               <a href="{% url 'uutinen_detail' u.id %}">{{u.title}} </a>
             </h2>
             <p class="uutis-pvm">Julkaistu: {{u.date}}</p>
-            <p>{{u.content}}</p>
+            <p>{{u.content|truncatewords:10}}</p>
             <p class="lue-lisaa">
               <a href="{% url 'uutinen_detail' u.id %}">Lue lisää →</a>
             </p>
