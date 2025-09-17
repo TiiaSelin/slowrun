@@ -74,7 +74,15 @@
         <div class="uutiset-osio">
           <h1 class="txt-all-capitals uutiset-main">Uutinen.</h1>
           <div class="yksittainen-uutinen">
+            {% if "images/" in uutinen.picture.name %}
+            <img
+              src="/static/{{ uutinen.picture.name }}"
+              alt=""
+              class="uutiskuva"
+            />
+            {% else %}
             <img src="{{ uutinen.picture.url }}" alt="" class="uutiskuva" />
+            {% endif %}
             <h2 class="uutiset-alaotsikko">{{ uutinen.title }}</h2>
             <p class="uutis-pvm">Julkaistu: {{ uutinen.date }}</p>
             <p>{{ uutinen.content }}</p>
