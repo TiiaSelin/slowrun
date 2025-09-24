@@ -11,8 +11,11 @@ class Viesti(models.Model):
         return self.nimi
 
 class Etusivukuva(models.Model):
+    title = models.CharField(blank=True, max_length=50)
     picture = models.ImageField(upload_to="")
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Kuva lisätty: {self.uploaded_at:%y-%m-%d}"
+        if self.title == None or self.title == "":
+            return f"Kuva lisätty: {self.uploaded_at:%y-%m-%d}"
+        return f"{self.title}: {self.uploaded_at:%y-%m-%d}"
