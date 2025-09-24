@@ -75,12 +75,16 @@
           <h1 class="txt-all-capitals uutiset-main">Uutiset</h1>
           {% for u in uutiset %}
           <div class="uutinen">
+            {% if "images/" in u.picture.name %}
+            <img src="/static/{{ u.picture.name }}" alt="" class="uutiskuva" />
+            {% else %}
             <img src="{{u.picture.url}}" alt="" class="uutiskuva" />
+            {% endif %}
             <h2 class="uutiset-alaotsikko">
               <a href="{% url 'uutinen_detail' u.id %}">{{u.title}} </a>
             </h2>
             <p class="uutis-pvm">Julkaistu: {{u.date}}</p>
-            <p>{{u.content}}</p>
+            <p>{{u.content|truncatewords:10}}</p>
             <p class="lue-lisaa">
               <a href="{% url 'uutinen_detail' u.id %}">Lue lisää →</a>
             </p>
