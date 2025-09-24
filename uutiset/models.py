@@ -13,3 +13,11 @@ class Uutinen(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def save(self, *args, **kwargs):
+        if self.pk:
+            previous = Uutinen.objects.filter(pk=self.pk).first()
+            if previous and previous.picture and previous.picture != self.picture:
+                previous.picture.delete(save=False)
+
+        super().save(*args, **kwargs)
