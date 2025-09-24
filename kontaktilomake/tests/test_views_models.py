@@ -22,6 +22,13 @@ class KontaktilomakeTest(TestCase):
         self.assertEqual(self.test_etusivukuva_0.__str__(), f"Kuva lisätty: {self.test_etusivukuva_0.uploaded_at:%y-%m-%d}")
         self.assertEqual(self.test_etusivukuva_1.__str__(), f"testikuva: {self.test_etusivukuva_1.uploaded_at:%y-%m-%d}")
 
+    def test_picture_deletion_on_update(self):
+        new_pic = Etusivukuva.objects.create(picture=fake_image)
+        old_path = new_pic.picture.path
+        new_pic.picture = fake_image
+        new_pic.save()
+        self.assertFalse(os.path.exists(old_path))
+
     def test_picture_deletion(self):
         for object in Etusivukuva.objects.all():
             object.delete()

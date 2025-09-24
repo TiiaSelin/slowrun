@@ -16,6 +16,15 @@ class Etusivukuva(models.Model):
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
+        date_str = self.uploaded_at.strftime("%y-%m-%d") if self.uploaded_at else "no-date"
         if self.title == None or self.title == "":
-            return f"Kuva lisätty: {self.uploaded_at:%y-%m-%d}"
-        return f"{self.title}: {self.uploaded_at:%y-%m-%d}"
+            return f"Kuva lisätty: {date_str}"
+        return f"{self.title}: {date_str}"
+    
+    def save(self, *args, **kwargs):
+        if self.pk:
+            previous = Etusivukuva.objects.filter(pk=self.pk).first()
+            if previous and previous.picture and previous.picture != self.picture:
+                previous.picture.delete(save=False)
+
+        super().save(*args, **kwargs)
