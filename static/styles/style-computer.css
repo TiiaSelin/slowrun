@@ -495,7 +495,7 @@ background: var(--white);
 
 
 .yhteydenottolomake {
-  width: 40%;
+  width: 40rem;
   margin: 5%;
   padding: 1%;
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
@@ -546,3 +546,6 @@ font-weight: 400;
 padding-top: 2rem;
 color: var(--blue)
 }
+
+
+
