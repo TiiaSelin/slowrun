@@ -14,5 +14,4 @@ def uutinen_detail(request, uutinen_id):
 @receiver(post_delete, sender=Uutinen)
 def delete_picture_on_uutinen_deletion(sender, instance, **kwargs):
     if instance.picture:
-        print(instance.picture)
         instance.picture.delete(save=False)

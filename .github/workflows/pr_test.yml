@@ -1,4 +1,4 @@
-name: Sivun reitittimen testaus.
+name: Testien suoritus.
 
 on:
   pull_request:
@@ -20,4 +20,4 @@ jobs:
       - name: Suorita testit.
         run: |
           coverage run manage.py test
-          coverage report
+          coverage report --fail-under=80

@@ -2,9 +2,7 @@ from django.test import TestCase, override_settings
 from django.urls import reverse
 from django.utils import timezone
 from django.core.files.uploadedfile import SimpleUploadedFile
-from datetime import timedelta
 from uutiset.models import Uutinen
-from uutiset import views
 import os, tempfile, shutil
 
 @override_settings(MEDIA_ROOT=tempfile.mkdtemp())
