@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slow Run ry</title>
+    <link rel="stylesheet" href="{% static 'styles/style-computer.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/style-mobile.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+        
+            <div class="nav-bar bg-blue">
+                <div class="nav-left">
+                    <a 
+                    href="{% url 'index' %}"
+                    class="nav-logo-link txt-all-capitals txt-white">Slow Run</a>   <!-- runner-img in link -->
+                </div>
+                <div class="nav-right">
+                    <section class="burger-icon" id="menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </section>
+                    <div class="nav-section-links">
+                        <div>
+                            <a href="{% url 'uutiset' %}" class="nav-link txt-all-capitals txt-white font-fam-sec">Uutiset</a>
+                        </div>
+                        <div>
+                            <a href="{% url 'yhteystiedot' %}"class="nav-link txt-all-capitals txt-white font-fam-sec">Yhteys</a>
+                        </div>
+                    </div>
+                    <aside class="mobile-links" id="mobile-menu">
+                        <a href="{% url 'uutiset' %}" class="nav-link txt-all-capitals txt-white font-fam-sec">Uutiset</a>
+                        <a href="{% url 'yhteystiedot' %}"class="nav-link txt-all-capitals txt-white font-fam-sec">Yhteys</a>
+                    </aside>
+                </div>
+            </div>
+           
+            <h1 class="yhteystiedot-otsikko">Hallinto:</h1>
+            <div class="henkilosto">
+                <div class="henkilo">
+                    <div>
+                    <img src="{% static '/images/profiilikuva1.jpg' %}" alt="" class="kuva">
+                    </div>
+                    <div class="info">
+                        <p style="font-size: 1.3rem;">Mohammed</p>
+                        <br>
+                        <p>Toiminnanjohtaja</p>
+                        <p>0403554215</p>
+                        <p>mohammed@slowrun.fi</p>
+                    </div>
+                </div>
+                <div class="henkilo">
+                    <div>
+                    <img src="{% static '/images/profiilikuva2.jpg' %}" alt="" class="kuva">
+                    </div>
+                    <div class="info">
+                        <p style="font-size: 1.3rem;">Johanna</p>
+                        <br>
+                        <p>Koordinaattori</p>
+                        <p>0403554215</p>
+                        <p>johanna@slowrun.fi</p>
+                    </div>
+                </div>
+                <div class="henkilo">
+                    <div>
+                    <img src="{% static '/images/profiilikuva3.jpg' %}" alt="" class="kuva">
+
+                    </div>
+                    <div class="info">
+                        <p style="font-size: 1.3rem;">Henry</p>
+                        <br>
+                        <p>Sihteeri</p>
+                        <p>0403554215</p>
+                        <p>henry@slowrun.fi</p>
+                    </div>
+                </div>
+                
+
+            </div>
+        
+
+            <div class="lomake-container">
+                <div class="yhteydenottolomake bg-olive">
+                    <h2 class="txt-white">OTA YHTEYTTÄ:</h2>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                    <div class="tablet-yhteystiedot">
+                        <input type="text" name="nimi" class="input-small" placeholder="Nimesi">
+                        <input type="text" name="sahkoposti" class="input-small" placeholder="Sähköpostisi">
+                        <input type="text" name="paikkakunta" class="input-small" placeholder="Paikkakuntasi">
+                        <input type="text" name="viesti" class="input-large" placeholder="Vapaa viesti meille...">
+                        <!-- YHTEYSTIETOLOMAKE -->
+                        <button type="submit" class="btn-laheta bg-blue txt-white font-fam-sec">Lähetä</button>
+                    </div>
+                    </form>
+                    {% if viesti_lahetetty %}
+                        <p style="color: green;">Kiitos viestistäsi!</p>
+                    {% endif %}
+                </div>
+            </div>
+            
+        
+            <footer class="bg-white">
+                <div class="footer-left">
+                    <p class="txt-blue font-fam-sec">Made in TAI-TVT</p>
+                </div>
+                <div class="footer-right">
+                    <div class="icon-footer">
+                        <img src="{% static 'images/icon-facebook.svg' %}" alt="icon-facebook" >   <!-- icon-facebook -->
+                    </div>
+                    <div class="icon-footer">
+                        <img src="{% static 'images/icon-linkedin.svg' %}" alt="icon-linkedin">
+                    </div>   <!-- icon-linkedin -->
+                </div>
+            </footer>
+
+        
+    
+    
+</body>
+<script>
+    const menu = document.getElementById("menu");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const closeMenu = () => {
+        mobileMenu.style.display = "none";
+    }
+    const openMenu = () => {
+        mobileMenu.style.display = "flex";
+    }
+    menu.addEventListener("click", () => {
+        if (mobileMenu.style.display == "none") {
+            openMenu();
+        } else {
+            closeMenu();
+        }
+    });
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 800) {
+            closeMenu();
+        }
+    })
+</script>
+</html>
