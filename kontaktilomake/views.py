@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.templatetags.static import static
+from django.db.models.signals import post_delete
+from django.dispatch import receiver
 from .models import Viesti, Etusivukuva
 
 def laheta_viesti(request):
@@ -30,6 +32,9 @@ def index_view(request):
         
     return render(request, 'index.html', {'viesti_lahetetty': viesti_lahetetty, "img_url": img_url})
 
+@receiver(post_delete, sender=Etusivukuva)
+def delete_file_on_object_deletion(sender, instance, **kwargs):
+    instance.picture.delete(save=False)
 
 def yhteystiedot_view(request):
     viesti_lahetetty = laheta_viesti(request)

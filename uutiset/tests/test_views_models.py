@@ -5,14 +5,15 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from uutiset.models import Uutinen
 import os, tempfile, shutil
 
+fake_image = SimpleUploadedFile(
+    name="test.jpg",
+    content=b"",
+    content_type="image/jpeg"
+)
+
 @override_settings(MEDIA_ROOT=tempfile.mkdtemp())
 class UutisetTest(TestCase):
     def setUp(self):
-        fake_image = SimpleUploadedFile(
-            name="test.jpg",
-            content=b"",
-            content_type="image/jpeg"
-        )
         self.test_uutinen_0 = Uutinen.objects.create(id=1, title="testiotsikko", content="testikontentti", date=timezone.now(), picture=fake_image)
         self.test_uutinen_1 = Uutinen.objects.create(picture=fake_image)
         self.test_uutinen_2 = Uutinen.objects.create(picture=fake_image)
@@ -33,6 +34,12 @@ class UutisetTest(TestCase):
     def test_uutiset_detail(self):
         response = self.client.get(reverse("uutinen_detail", args=[self.test_uutinen_0.id]))
         self.assertContains(response, "testiotsikko")
+
+    def test_picture_deletion_on_update(self):
+        new_uutinen = Uutinen.objects.create(picture=fake_image)
+        new_uutinen.picture = fake_image
+        new_uutinen.save()
+        self.assertNotEqual(new_uutinen.picture, self.test_uutinen_0.picture)
 
     def test_picture_deletion(self):
         for object in Uutinen.objects.all():
