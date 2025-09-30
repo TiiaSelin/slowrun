@@ -47,7 +47,7 @@ class Command(BaseCommand):
                 "title": "Uusi yhteistyökumppani",
                 "content": ("Tunnemme suunnattoman paljon nautintoa kertoessamme uudesta yhteistyökumppanuudesta paikallisen etanaplantaasin kanssa! "
                 "Olemme odottaneet tätä kauan, ja nyt vihdoinkin tämä saavutus tulee ulos kuorestaan. "
-                "\n\nTietoa etanaplantaaista: tila koostuu (vapaaehtoisista!) etanatyöntekijöistä, ja jollakin konstilla he tuottavat energiaa. "
+                "\n\nTietoa etanaplantaasista: tila koostuu (vapaaehtoisista!) etanatyöntekijöistä, ja jollakin konstilla he tuottavat energiaa. "
                 "Plantaasi ei ole tuottanut vielä yhtään energiayksikköä, mutta emme ole tästä huolissamme. "
                 "Uskomme että yhteistyömme tuo iloa, tulosta ja hyvää kärsivällisyyden opettelua. Mitä hitaampi, sen parempi! Tätä mieltä olemme Slowrunissa!"),
                 "date": timezone.now() + timedelta(days=2),

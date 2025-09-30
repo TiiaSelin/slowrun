@@ -1,7 +1,10 @@
 from django.test import TestCase, override_settings
 from django.core.files.uploadedfile import SimpleUploadedFile
-from kontaktilomake.models import Etusivukuva
+from kontaktilomake.models import Etusivukuva, Viesti
 import os, tempfile, shutil
+from django.urls import reverse
+
+
 
 fake_image = SimpleUploadedFile(
     name="test.jpg",
@@ -33,3 +36,30 @@ class KontaktilomakeTest(TestCase):
         for object in Etusivukuva.objects.all():
             object.delete()
         self.assertEqual(len(os.listdir(self._overridden_settings["MEDIA_ROOT"])), 0)
+
+class LomakeTest(TestCase):
+    def setUp(self):
+        self.data = {
+            "nimi": "Testaaja",
+            "sahkoposti": "testaaja@example.com",
+            "paikkakunta": "Turku",
+            "viesti": "Tämä on testiviesti."
+        }
+        self.urls = ["index", "yhteystiedot"]
+
+    def test_lomakkeet_post(self):
+        for url_name in self.urls:
+            response = self.client.post(reverse(url_name), self.data)
+            self.assertEqual(response.status_code, 200)
+            self.assertTrue(Viesti.objects.filter(viesti="Tämä on testiviesti.").exists())
+            self.assertContains(response, "Kiitos viestistäsi!")
+            Viesti.objects.all().delete()
+            
+    def test_viesti_str(self):
+        viesti = Viesti.objects.create(
+            nimi="Testaaja",
+            sahkoposti="testi@example.com",
+            paikkakunta="Helsinki",
+            viesti="Viesti"
+        )
+        self.assertEqual(str(viesti), "Testaaja")
