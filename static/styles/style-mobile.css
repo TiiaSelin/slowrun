@@ -1,37 +1,30 @@
 @media only screen and (max-width: 800px) {
-  h1 {
-    font-size: var(--font-size-h2);
-  }
 
-  .hero-image {
+  /* Fonttikoot skaalautuvat */
+  h1 { font-size: clamp(1.8rem, 5vw, 2rem); }
+  h2 { font-size: clamp(1.5rem, 4vw, 1.8rem); }
+  h3 { font-size: clamp(1.2rem, 3vw, 1.5rem); }
+  p, .p-mista-on-kyse, .p-keita-olemme, .p-mihin-vaikuttaa { 
+      font-size: clamp(1.2rem, 2.5vw, 1.2rem); 
+      
+  }
+  .nav-link, .join-btn { font-size: clamp(1rem, 2.5vw, 1.2rem); }
+
+  /* Hero ja muut isot paddingit pienemmiksi */
+  .hero-image, .txt-mista-on-kyse, .container-miksi-mukaan, .container-keita-olemme {
     padding: var(--padding-small);
   }
 
-  .txt-mista-on-kyse {
-    padding: var(--padding-small);
-    padding-top: var(--padding-medium);
-  }
-
-  .container-mihin-vaikuttaa {
+  /* Flexbox rivit -> kolumnit */
+  .container-mihin-vaikuttaa, .container-bottom, .container-keita-olemme {
     flex-direction: column;
+    align-items: center;
   }
 
-  .container-bottom {
-      flex-direction: column;
-      align-items: center;
-  }
-
-  .bottom-left {
-      order: 2;
-      width: 100%;
-  }
-
-  .bottom-right {
-      order: 1;
-      width: 100%;
-      height: 100vh;
-      padding: 0;
-      flex: 1;
+  .bottom-left, .bottom-right {
+    width: 100%;
+    order: unset; /* Poistetaan tarvittaessa */
+    padding: 0;
   }
 
   .map {
@@ -106,29 +99,117 @@
 
 
 @media (max-width: 600px) {
-    form {
+    .lomake-container form {
         display: flex;
         flex-direction: column;
         gap: 1rem; 
     }
-    input, textarea, button {
+    .lomake-container input, textarea, button {
         width: 100%;
         font-size: 1rem; 
         padding: 12px;
     }
+
+
+
+    .lomake-container button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 14px;
+        font-size: 1.1rem;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
 }
 
 
-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 14px;
-    font-size: 1.1rem;
-    cursor: pointer;
+@media (max-width: 768px) {
+  .svg-arvoportaat.desktop {
+    display: none;
+  }
+  .svg-arvoportaat.mobile {
+    display: block;
+    margin: 0 auto;
+    width: 90%;       
+    max-width: 1000px; 
+    height: auto;
+    color: var(--olive);
+  }
+
+   .svg-arvoportaat.mobile .txt-arvoportaat {
+    font-size: clamp(16px, 4vw, 28px);
+    font-weight: 600;
+  }
 }
 
-button:hover {
-    background-color: #0056b3;
+
+
+@media (max-width: 800px) {
+  .bottom-left, 
+  .bottom-left form, 
+  .bottom-left .tablet-yhteystiedot {
+    width: 100%;
+    max-width: 100%;
+    
+  }
+
+  .bottom-left .tablet-yhteystiedot input,
+  .bottom-left .tablet-yhteystiedot textarea {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.8rem;
+    box-sizing: border-box; 
+  }
+
+  .bottom-left .btn-laheta {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+  }
+
+  .bottom-left .bottom-yhteystiedot h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    margin-bottom: 1rem;
+  }
+
+  .bottom-yhteystiedot {
+    padding-left: var(--padding-small);
+    padding-right: var(--padding-small);
+    align-self: center;
+  }
+
+}
+
+
+@media (max-width: 800px) {
+  .container-bottom {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bottom-left { 
+    order: 2;
+  }
+
+  .bottom-right { 
+    order: 1;
+  }
+
+
+}
+
+@media (max-width: 800px) {
+  .nav-logo-link {
+    font-size: clamp(2rem, 5vw, 1.5rem); 
+  }
+
+  span {
+    margin: 5px !important;
+  }
 }

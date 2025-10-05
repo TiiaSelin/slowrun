@@ -239,24 +239,40 @@ h3 {
 .txt-olive {
   color: var(--olive);
 }
-
 .container-arvoportaat {
   width: 100%;
-  height: 200px; /* korkeus 144px + extraa */
-  overflow-y: hidden; /* + fonttikorkeus 32px */
   margin-top: var(--margin-medium);
+  overflow-x: auto; /* jos sisältö olisi liian leveä, sallitaan vieritys */
 }
 
 .svg-arvoportaat {
-  width: 1000px;
-  height: 200px;
+  width: 100%;
+  max-width: 1000px; /* ei kasva isommaksi kuin alkuperäinen */
+  height: auto;
+  display: block;
 }
+
+
 
 .txt-arvoportaat {
   fill: var(--olive);
-  font-size: var(--font-size-h2);
+  font-size: clamp(12px, 2vw, var(--font-size-h2)); /* skaalautuva fonttikoko */
   font-family: var(--font-fam-sec);
 }
+
+
+.svg-arvoportaat.mobile {
+  display: none;
+  width: 100%;
+  height: auto;
+  color: var(--olive); /* käyttää samaa väriä kuin teksti */
+}
+
+.svg-arvoportaat.desktop {
+  display: block;
+}
+
+
 
 polyline {
   stroke: var(--olive);

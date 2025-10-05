@@ -37,7 +37,7 @@
                     </div>
                     <aside class="mobile-links" id="mobile-menu">
                         <a href="{% url 'uutiset' %}" class="nav-link txt-all-capitals txt-white font-fam-sec">Uutiset</a>
-                        <a href="yhteystiedot.html" class="nav-link txt-all-capitals txt-white font-fam-sec">Yhteys</a>
+                        <a href="{% url 'yhteystiedot' %}" class="nav-link txt-all-capitals txt-white font-fam-sec">Yhteys</a>
                     </aside>
                 </div>
             </div>
@@ -106,22 +106,47 @@
                 <h3 class="txt-olive">Arvomme näet alla:</h3>
             </div>
 
-            <div class="container-arvoportaat">
-                <svg class="svg-arvoportaat" xmlns="http://www.w3.org/2000/svg">
-                        <!-- merkitään arvoportaiden sanojen "lähtöpisteet" (x ja y): -->
-                    <text x="30" y="32" class="txt-arvoportaat">Pitkäikäisyys</text>
-                    <text x="304" y="80" class="txt-arvoportaat">Fyysisyys</text>
-                    <text x="546" y="128" class="txt-arvoportaat">Terve mieli</text>
-                    <text x="780" y="176" class="txt-arvoportaat">Yhteisöllisyys</text>
-                    
-                        <!-- merkitään viivakuvion kulmien "lähtöpisteet" (x ja y): -->
-                    <polyline points=   "0, 48      250, 48
-                                        250, 96     500, 96
-                                        500, 144    750, 144
-                                        750, 192    1000, 192">
-                    
-                </svg>
-            </div>
+        <div class="container-arvoportaat">
+            <svg class="svg-arvoportaat desktop"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1000 200"
+                preserveAspectRatio="xMinYMin meet">
+                
+                <!-- Tekstit -->
+                <text x="30" y="32" class="txt-arvoportaat">Pitkäikäisyys</text>
+                <text x="304" y="80" class="txt-arvoportaat">Fyysisyys</text>
+                <text x="546" y="128" class="txt-arvoportaat">Terve mieli</text>
+                <text x="780" y="176" class="txt-arvoportaat">Yhteisöllisyys</text>
+                
+                <!-- Viivakuvio -->
+                <polyline points="0,48 250,48
+                                250,96 500,96
+                                500,144 750,144
+                                750,192 1000,192"
+                        stroke="black" fill="none"/>
+            </svg>
+            <svg class="svg-arvoportaat mobile" xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 260 260" preserveAspectRatio="xMidYMid meet">
+                
+                <!-- Portaat -->
+                <polyline 
+                    points="40,40 120,40
+                            120,90 180,90
+                            180,140 240,140
+                            "
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-width="2"
+                />
+
+                <!-- Tekstit portaille -->
+                <text x="15%" y="10%" class="txt-arvoportaat">Pitkäikäisyys</text>
+                <text x="50%" y="25%" class="txt-arvoportaat">Fyysisyys</text>
+                <text x="30%" y="50%" class="txt-arvoportaat">Terve mieli</text>
+                <text x="55%" y="70%" class="txt-arvoportaat">Yhteisöllisyys</text>
+            </svg>
+        </div>
+
         </div>
         
         <div class="container-bottom">
