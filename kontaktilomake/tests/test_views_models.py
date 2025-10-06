@@ -49,6 +49,7 @@ class LomakeTest(TestCase):
         self.urls = ["index", "yhteystiedot"]
 
     def test_lomakkeet_post(self):
+        """Testaa lomakkeiden POST-lähetyksen"""
         for url_name in self.urls:
             response = self.client.post(reverse(url_name), self.data)
             self.assertEqual(response.status_code, 200)
