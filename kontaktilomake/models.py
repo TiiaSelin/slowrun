@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.exceptions import ValidationError
+from django.core.validators import URLValidator
 
 class Viesti(models.Model):
     nimi = models.CharField(max_length=100)
@@ -28,3 +30,11 @@ class Etusivukuva(models.Model):
                 previous.picture.delete(save=False)
 
         super().save(*args, **kwargs)
+
+class Karttakuva(models.Model):
+    url = models.CharField(max_length=2000, validators=[URLValidator()])
+
+    def clean(self):
+        super().clean()
+        if self.url and not self.url.startswith("https://www.google.com/maps/embed"):
+            raise ValidationError("Vain google maps kartat käyvät.")
