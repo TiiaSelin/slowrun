@@ -252,14 +252,11 @@ h3 {
   display: block;
 }
 
-
-
 .txt-arvoportaat {
   fill: var(--olive);
   font-size: clamp(12px, 2vw, var(--font-size-h2)); /* skaalautuva fonttikoko */
   font-family: var(--font-fam-sec);
 }
-
 
 .svg-arvoportaat.mobile {
   display: none;
@@ -271,8 +268,6 @@ h3 {
 .svg-arvoportaat.desktop {
   display: block;
 }
-
-
 
 polyline {
   stroke: var(--olive);
@@ -500,21 +495,17 @@ footer {
 
 /*yhteystiedot-sivu*/
 
-
 .yhteydenottolomake {
   width: 40rem;
   margin: 5%;
   padding: 1%;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  
-
 }
 
 .lomake-container {
   display: flex;
   justify-content: center;
-
 }
 
 .henkilosto {
@@ -526,33 +517,32 @@ footer {
   margin-bottom: 5rem;
 }
 
-
-.kuva{
- 
-width: 10rem;
-height:13rem;
-border: 2px black solid;
+.kuva {
+  width: 10rem;
+  height: 13rem;
+  border: 2px black solid;
 }
 
 .info {
-width: 12rem;
-
+  width: 12rem;
 }
 
-.henkilo{
+.henkilo {
   display: flex;
   flex-direction: row;
   gap: 1rem;
 }
 
-
 .yhteystiedot-otsikko {
   display: flex;
-justify-content: center;
-font-weight: 400;
-padding-top: 2rem;
-color: var(--blue)
+  justify-content: center;
+  font-weight: 400;
+  padding-top: 2rem;
+  color: var(--blue);
 }
 
-
-
+.yhteys-osoite {
+  display: flex;
+  justify-content: center;
+  font-style: italic;
+}

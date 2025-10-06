@@ -38,3 +38,9 @@ class Karttakuva(models.Model):
         super().clean()
         if self.url and not self.url.startswith("https://www.google.com/maps/embed"):
             raise ValidationError("Vain google maps kartat käyvät.")
+        
+class Osoite(models.Model):
+    title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
