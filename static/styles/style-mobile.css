@@ -149,7 +149,7 @@
 
 
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   .bottom-left, 
   .bottom-left form, 
   .bottom-left .tablet-yhteystiedot {
@@ -187,7 +187,7 @@
 }
 
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   .container-bottom {
     display: flex;
     flex-direction: column;
