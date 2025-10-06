@@ -4,7 +4,7 @@ from django.db.models.signals import post_delete
 from django.dispatch import receiver
 from django.core.validators import URLValidator
 from django.core.exceptions import ValidationError
-from .models import Viesti, Etusivukuva, Karttakuva
+from .models import Viesti, Etusivukuva, Karttakuva, Osoite
 
 def laheta_viesti(request):
     if request.method == "POST":
@@ -50,9 +50,15 @@ def delete_file_on_object_deletion(sender, instance, **kwargs):
     instance.picture.delete(save=False)
 
 def yhteystiedot_view(request):
+    place = Osoite.objects.last()
     viesti_lahetetty = laheta_viesti(request)
+
+    if place:
+        address = place.title
+    else:
+        address = "Etsinnässä..."
     
-    return render(request, "yhteystiedot.html", {"viesti_lahetetty": viesti_lahetetty})
+    return render(request, "yhteystiedot.html", {"viesti_lahetetty": viesti_lahetetty, "address": address})
 
 
 
