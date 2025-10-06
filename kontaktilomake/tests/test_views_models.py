@@ -1,7 +1,7 @@
 from django.test import TestCase, override_settings
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.core.exceptions import ValidationError
-from kontaktilomake.models import Etusivukuva, Viesti, Karttakuva
+from kontaktilomake.models import Etusivukuva, Viesti, Karttakuva, Osoite
 import os, tempfile, shutil
 from django.urls import reverse
 
@@ -14,7 +14,7 @@ fake_image = SimpleUploadedFile(
 )
 
 @override_settings(MEDIA_ROOT=tempfile.mkdtemp())
-class KontaktilomakeTest(TestCase):
+class EtusivukuvaTest(TestCase):
     def setUp(self):        
         self.test_etusivukuva_0 = Etusivukuva.objects.create(picture=fake_image)
         self.test_etusivukuva_1 = Etusivukuva.objects.create(title="testikuva", picture=fake_image)
@@ -37,6 +37,11 @@ class KontaktilomakeTest(TestCase):
         for object in Etusivukuva.objects.all():
             object.delete()
         self.assertEqual(len(os.listdir(self._overridden_settings["MEDIA_ROOT"])), 0)
+
+    def test_index_with_picture(self):
+        response = self.client.get(reverse("index"))
+        self.assertIn("/media/test", response.context["img_url"])
+
 
 class LomakeTest(TestCase):
     def setUp(self):
@@ -90,3 +95,17 @@ class KarttakuvaTest(TestCase):
         with self.assertRaises(ValidationError):
             test_karttakuva.full_clean()
         self.assertEqual(Karttakuva.objects.count(), 0)
+
+class OsoiteTest(TestCase):
+    def test_osoite_string(self):
+        osoite = Osoite.objects.create(
+            title="Sienitie 9001",
+        )
+        self.assertEqual(str(osoite), "Sienitie 9001")
+
+    def test_yhteystiedot_with_osoite(self):
+        osoite = Osoite.objects.create(
+            title="Sienipolku -1"
+        )
+        response = self.client.get(reverse("yhteystiedot"))
+        self.assertIn("Sienipolku -1", response.context["address"])
